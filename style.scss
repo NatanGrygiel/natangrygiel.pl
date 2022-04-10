@@ -1,0 +1,33 @@
+$color1: #1abc9c;
+$color2: #ffffff;
+
+@font-face {
+  font-family: Titillium;
+  src: url('/fonts/TitilliumWeb-Regular.ttf');
+
+}
+// create the same font-family as above but with a bold version
+@font-face {
+  font-family: Titillium;
+  src: url('/fonts/TitilliumWeb-Bold.ttf');
+  font-weight: bold;
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: $color1;
+    color: $color2;
+    font-size: 30px;
+  }
+
+  .header h1 {
+    font-family: Titillium;
+    font-weight: bold;
+    font-size: 5vw;
+  }
+
+  .header p {
+    font-family: Titillium;
+    font-size: 2vw;
+  }
