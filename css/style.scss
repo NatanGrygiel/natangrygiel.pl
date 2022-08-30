@@ -1,0 +1,115 @@
+/* create variables for the colors */
+/* the colors will be for the background, primary color, and the accent color */
+$primary: #fff;
+$accent:  #ff004b;
+$background: #141414;
+
+
+/* set background color to the background variable */
+body {
+  background-color: $background;
+  border: 5px solid $accent;
+}
+
+
+/* set font-family to Anonymous Pro Mono */
+html, body, input, textarea, select, button {
+    font-family: 'Anonymous Pro', monospace;
+}
+
+/* set the color of h1 to the primary variable and center it */
+/* also make the font bold and huge, make the size 4vw and in one line */
+h1 {
+    white-space:nowrap;
+    overflow:visible;
+  text-align: center;
+  color: $primary;
+  font-weight: bold;
+  font-size: 4vw;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* make h2 the same as h1, but set the color to the accent variable */
+/* make the font not bold and a little smaller, make the size 3vw */
+
+h2 {
+    white-space:nowrap;
+    overflow:visible;
+  text-align: center;
+  color: $accent;
+  font-weight: normal;
+  font-size: 3vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* make h3 the same as h2, but the size is 2vw and it's the primary color */
+h3 {
+    white-space:nowrap;
+    overflow:visible;
+  text-align: center;
+  color: $primary;
+  font-weight: normal;
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* make a link the same as h3, but the color is the accent color */
+a {
+    white-space:nowrap;
+    overflow:visible;
+  text-align: center;
+  color: $accent;
+  font-weight: normal;
+  font-size: 2vw;
+  margin: 0;
+  padding: 0;
+}
+
+/* make a div that will be centered horizontally and vertically */
+/* it will be used to center both the h1 and h2 */
+/* the div will be named center */
+.center {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    padding: 2.75vw;
+    background-color: #282828;
+    border: 5px solid $accent;
+  }
+
+  /* make a div to put particles.js in */
+    /* the div will be named particles-js */
+
+    .particles-js {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        background-color: $background;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 5px solid $accent;
+    }
+/* make another div the same as the center div but it's going to be centered horizontally and its going to be on the bottom of the page */
+/* the div will be named bottom */
+.bottom {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 1.50vw;
+    background-color: #282828;
+    border: 5px solid $accent;
+}
