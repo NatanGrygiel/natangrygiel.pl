@@ -1,3 +1,8 @@
+/* ======================================================================= */
+/* ===== REMEMBER TO TURN ON THE SCSS COMPILER BEFORE MAKING CHANGES ===== */
+/* =====     OR AT LEAST MAKE SURE THE SCSS COMPILER IS ENABLED      ===== */
+/* =====         BEFORE YOU THINK THAT THE CODE IS BROKEN.           ===== */
+/* ======================================================================= */
 /* create variables for the colors */
 /* the colors will be for the background, primary color, and the accent color */
 /* set background color to the background variable */
@@ -49,16 +54,18 @@ h3 {
   padding: 0;
 }
 
-/* make a link the same as h3, but the color is the accent color */
+/* make <a> the same as h3, but the the color is the accent color */
+/* also remove the underline as it doesn't fit the design */
 a {
   white-space: nowrap;
   overflow: visible;
   text-align: center;
   color: #ff004b;
   font-weight: normal;
-  font-size: 2vw;
+  font-size: 3vw;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 /* make a div that will be centered horizontally and vertically */
@@ -100,7 +107,7 @@ a {
   bottom: 0;
   transform: translateX(-50%);
   text-align: center;
-  padding: 1.5vw;
+  padding: 1vw;
   background-color: #282828;
   border: 5px solid #ff004b;
 }/*# sourceMappingURL=style.css.map */
