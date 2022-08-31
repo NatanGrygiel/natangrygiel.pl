@@ -28,6 +28,10 @@ h1 {
   margin: 0;
   padding: 0;
 }
+/* make h1 for devices portrait mode */
+/* instead of using max-width, use orientation:portrait */
+/* also use a different color for now, because i want to see the difference */
+
 
 /* make h2 the same as h1, but set the color to the accent variable */
 /* make the font not bold and a little smaller, make the size 3vw */
