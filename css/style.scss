@@ -33,11 +33,17 @@ h1 {
   text-align: center;
   color: $primary;
   font-weight: bold;
-  font-size: 4vw;
+  font-size: 2.25vw;
   margin: 0;
   padding: 0;
 }
-
+/* make h1 fit vertical screens */
+/* instead of using max-width, use orientation:portrait */
+@media (orientation: portrait) {
+  h1 {
+    font-size: 4.25vw;
+  }
+}
 
 
 /* make h2 the same as h1, but set the color to the accent variable */
@@ -49,9 +55,16 @@ h2 {
   text-align: center;
   color: $accent;
   font-weight: normal;
-  font-size: 3vw;
+  font-size: 1.75vw;
   margin: 0;
   padding: 0;
+}
+/* make h2 fit vertical screens */
+/* instead of using max-width, use orientation:portrait */
+@media (orientation: portrait) {
+  h2 {
+    font-size: 3.25vw;
+  }
 }
 
 /* make h3 the same as h2, but the size is 2vw and it's the primary color */
@@ -74,10 +87,17 @@ a {
   text-align: center;
   color: $accent;
   font-weight: normal;
-  font-size: 3vw;
+  font-size: 1vw;
   margin: 0;
   padding: 0;
   text-decoration: none;
+}
+/* make <a> fit vertical screens */
+/* instead of using max-width, use orientation:portrait */
+@media (orientation: portrait) {
+  a {
+    font-size: 5vw;
+  }
 }
 
 
@@ -91,7 +111,7 @@ a {
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
-    padding: 2.75vw;
+    padding: 2vw;
     background-color: #282828;
     border: 5px solid $accent;
   }
@@ -120,7 +140,18 @@ a {
     bottom: 0;
     transform: translateX(-50%);
     text-align: center;
-    padding: 1vw;
+    padding: 0.50vw;
     background-color: #282828;
     border: 5px solid $accent;
+}
+/* padding is too small on mobile */
+/* we're going to use the same fix that we did for the h1 */
+/* that way center and bottom will have proper padding */
+@media (orientation: portrait) {
+  .center {
+    padding: 3vw;
+  }
+  .bottom {
+    padding: 2.25vw;
+  }
 }

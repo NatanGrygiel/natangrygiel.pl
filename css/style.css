@@ -24,15 +24,18 @@ h1 {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  font-size: 4vw;
+  font-size: 2.25vw;
   margin: 0;
   padding: 0;
 }
-/* make h1 for devices portrait mode */
+
+/* make h1 fit vertical screens */
 /* instead of using max-width, use orientation:portrait */
-/* also use a different color for now, because i want to see the difference */
-
-
+@media (orientation: portrait) {
+  h1 {
+    font-size: 4.25vw;
+  }
+}
 /* make h2 the same as h1, but set the color to the accent variable */
 /* make the font not bold and a little smaller, make the size 3vw */
 h2 {
@@ -41,11 +44,18 @@ h2 {
   text-align: center;
   color: #ff004b;
   font-weight: normal;
-  font-size: 3vw;
+  font-size: 1.75vw;
   margin: 0;
   padding: 0;
 }
 
+/* make h2 fit vertical screens */
+/* instead of using max-width, use orientation:portrait */
+@media (orientation: portrait) {
+  h2 {
+    font-size: 3.25vw;
+  }
+}
 /* make h3 the same as h2, but the size is 2vw and it's the primary color */
 h3 {
   white-space: nowrap;
@@ -66,12 +76,19 @@ a {
   text-align: center;
   color: #ff004b;
   font-weight: normal;
-  font-size: 3vw;
+  font-size: 1vw;
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
 
+/* make <a> fit vertical screens */
+/* instead of using max-width, use orientation:portrait */
+@media (orientation: portrait) {
+  a {
+    font-size: 5vw;
+  }
+}
 /* make a div that will be centered horizontally and vertically */
 /* it will be used to center both the h1 and h2 */
 /* the div will be named center */
@@ -82,7 +99,7 @@ a {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   text-align: center;
-  padding: 2.75vw;
+  padding: 2vw;
   background-color: #282828;
   border: 5px solid #ff004b;
 }
@@ -111,7 +128,19 @@ a {
   bottom: 0;
   transform: translateX(-50%);
   text-align: center;
-  padding: 1vw;
+  padding: 0.5vw;
   background-color: #282828;
   border: 5px solid #ff004b;
+}
+
+/* padding is too small on mobile */
+/* we're going to use the same fix that we did for the h1 */
+/* that way center and bottom will have proper padding */
+@media (orientation: portrait) {
+  .center {
+    padding: 3vw;
+  }
+  .bottom {
+    padding: 2.25vw;
+  }
 }/*# sourceMappingURL=style.css.map */
