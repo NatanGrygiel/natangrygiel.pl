@@ -1,23 +1,14 @@
-/* ======================================================================= */
-/* ===== REMEMBER TO TURN ON THE SCSS COMPILER BEFORE MAKING CHANGES ===== */
-/* =====     OR AT LEAST MAKE SURE THE SCSS COMPILER IS ENABLED      ===== */
-/* =====         BEFORE YOU THINK THAT THE CODE IS BROKEN.           ===== */
-/* ======================================================================= */
-/* create variables for the colors */
-/* the colors will be for the background, primary color, and the accent color */
-/* set background color to the background variable */
+/* is the sass compiler on? */
 body {
   background-color: #141414;
   border: 5px solid #ff004b;
 }
 
-/* set font-family to Anonymous Pro Mono */
+/* set font-family */
 html, body, input, textarea, select, button {
   font-family: "Anonymous Pro", monospace;
 }
 
-/* set the color of h1 to the primary variable and center it */
-/* also make the font bold and huge, make the size 4vw and in one line */
 h1 {
   white-space: nowrap;
   overflow: visible;
@@ -29,15 +20,12 @@ h1 {
   padding: 0;
 }
 
-/* make h1 fit vertical screens */
-/* instead of using max-width, use orientation:portrait */
+/* mobile optimization */
 @media (orientation: portrait) {
   h1 {
     font-size: 4.25vw;
   }
 }
-/* make h2 the same as h1, but set the color to the accent variable */
-/* make the font not bold and a little smaller, make the size 3vw */
 h2 {
   white-space: nowrap;
   overflow: visible;
@@ -49,14 +37,12 @@ h2 {
   padding: 0;
 }
 
-/* make h2 fit vertical screens */
-/* instead of using max-width, use orientation:portrait */
+/* mobile optimization */
 @media (orientation: portrait) {
   h2 {
     font-size: 3.25vw;
   }
 }
-/* make h3 the same as h2, but the size is 2vw and it's the primary color */
 h3 {
   white-space: nowrap;
   overflow: visible;
@@ -68,8 +54,7 @@ h3 {
   padding: 0;
 }
 
-/* make <a> the same as h3, but the the color is the accent color */
-/* also remove the underline as it doesn't fit the design */
+/* make <a> fit style */
 a {
   white-space: nowrap;
   overflow: visible;
@@ -82,16 +67,13 @@ a {
   text-decoration: none;
 }
 
-/* make <a> fit vertical screens */
-/* instead of using max-width, use orientation:portrait */
+/* mobile optimization */
 @media (orientation: portrait) {
   a {
     font-size: 5vw;
   }
 }
-/* make a div that will be centered horizontally and vertically */
-/* it will be used to center both the h1 and h2 */
-/* the div will be named center */
+/* center maintenance text */
 .center {
   margin: auto;
   position: absolute;
@@ -104,8 +86,6 @@ a {
   border: 5px solid #ff004b;
 }
 
-/* make a div to put particles.js in */
-/* the div will be named particles-js */
 .particles-js {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -119,8 +99,7 @@ a {
   border: 5px solid #ff004b;
 }
 
-/* make another div the same as the center div but it's going to be centered horizontally and its going to be on the bottom of the page */
-/* the div will be named bottom */
+/* footer */
 .bottom {
   margin: auto;
   position: absolute;
@@ -133,9 +112,7 @@ a {
   border: 5px solid #ff004b;
 }
 
-/* padding is too small on mobile */
-/* we're going to use the same fix that we did for the h1 */
-/* that way center and bottom will have proper padding */
+/* mobile padding */
 @media (orientation: portrait) {
   .center {
     padding: 3vw;
