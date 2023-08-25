@@ -1,4 +1,12 @@
 $border-color: #ff004b;
+//tone down ff004b to be dark and use it as the background color
+$background-color: #1b1b1b;
+
+// set backround color
+body {
+  background-color: $background-color;
+}
+
 // import reset.css
 @import "reset.css";
 .terminal {
@@ -11,8 +19,6 @@ $border-color: #ff004b;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  perspective: 1000px; // Gives a 3D perspective
-  transform-style: preserve-3d;
   @media (orientation: portrait) {
     width: 75%;
   }

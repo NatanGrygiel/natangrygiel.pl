@@ -1,4 +1,8 @@
 @import "reset.css";
+body {
+  background-color: #1b1b1b;
+}
+
 .terminal {
   border: 5px solid #ff004b;
   width: 50%;
@@ -9,8 +13,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  perspective: 1000px;
-  transform-style: preserve-3d;
 }
 @media (orientation: portrait) {
   .terminal {
