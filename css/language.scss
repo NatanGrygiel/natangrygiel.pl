@@ -1,0 +1,43 @@
+$border-color: #ff004b;
+
+.terminal {
+  border: 5px solid $border-color;
+  width: 300px;
+  background-color: #282828;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.title-bar {
+  background-color: $border-color;
+  color: #fff;
+  padding: 5px;
+  text-align: right;
+
+  .close-btn {
+    cursor: pointer;
+  }
+}
+
+.content {
+  padding: 10px;
+
+  .language-option {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    text-align: center;
+
+    img {
+      width: 50px;
+    }
+    
+    span {
+      display: block;
+      color: $border-color;
+    }
+  }
+}

@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/language.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natan Grygiel</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', 'js/particles.json', function() {
-            console.log('particles.js loaded - callback');
-        });
-    </script>
-    <div class="particles-js" id="particles-js"></div>
+    <div class="terminal">
+        <div class="title-bar">
+          <span class="close-btn">X</span>
+        </div>
+        <div class="content">
+          <div class="language-option" onclick="location.href='/pl/'">
+            <img src="images/polish-flag.png" alt="Polish Flag">
+            <span>< POLSKI ></span>
+          </div>
+          <div class="language-option" onclick="location.href='/en/'">
+            <img src="images/english-flag.png" alt="English Flag">
+            <span>< ENGLISH ></span>
+          </div>
+        </div>
+      </div>
+      
 </body>
 
 </html>
