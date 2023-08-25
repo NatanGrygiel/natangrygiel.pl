@@ -1,37 +1,92 @@
+@import "reset.css";
 .terminal {
   border: 5px solid #ff004b;
-  width: 300px;
-  background-color: #282828;
+  width: 50%;
+  height: 30vw; /* Set a specific height for the terminal */
+  background-color: #1b1b1b;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+@media (orientation: portrait) {
+  .terminal {
+    width: 75%;
+  }
 }
 
 .title-bar {
   background-color: #ff004b;
   color: #fff;
   padding: 5px;
-  text-align: right;
+  text-align: left; /* Align the title to the left */
+  font-weight: bold;
 }
 .title-bar .close-btn {
   cursor: pointer;
+  float: right; /* Move the close button to the right */
+}
+.title-bar:before {
+  content: "[root@localhost]#"; /* Title */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(0deg, #080808, #080808 2px, transparent 2px, transparent 4px);
+  background-blend-mode: overlay;
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .content {
-  padding: 10px;
+  padding: 0;
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
 }
 .content .language-option {
-  display: inline-block;
-  margin: 10px;
+  width: 110px;
+  margin: 5px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .content .language-option img {
-  width: 50px;
+  width: 104px;
+  height: 104px;
+  image-rendering: crisp-edges;
+  margin-bottom: -5px;
 }
 .content .language-option span {
   display: block;
-  color: #ff004b;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-out;
+}
+.content .language-option:hover span {
+  background-color: #ff004b;
+  transition: background-color 0.3s ease-in;
+}
+
+#static-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* So it doesn't interfere with other interactions */
+  opacity: 0.1; /* You can adjust the opacity as needed */
 }/*# sourceMappingURL=language.css.map */
