@@ -1,5 +1,9 @@
 self.onmessage = function(event) {
     const { width, height } = event.data;
+    if (typeof width !== 'number' || typeof height !== 'number') {
+      console.log("Invalid data received by worker:", event.data);
+      return;
+    }
     const canvas = new OffscreenCanvas(width, height);
     const ctx = canvas.getContext('2d');
     

@@ -1,7 +1,9 @@
 $border-color: #ff004b;
 $background-color: #140c0e;
 $bg-gradient: #140c0e;
-
+//import normalize.css
+@import "normalize.css";
+@import "reset.css";
 body {
   margin: 0;
   padding: 0;
@@ -14,25 +16,24 @@ $lineThickness: 5px;  // Thickness of the lines
 $gridColor: #ff004b;  // Grid color
 
 .grid-background {
+  transform-style: preserve-3d;
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: -1px;  // Push it 1px to the left
+  width: calc(100% + 1px);  // Extend the width by 1px
   height: 100%;
   background-color: $background-color;
-  
-  // Drawing the grid lines
+
   background-image: 
-    linear-gradient(to right, $gridColor, $gridColor $lineThickness, transparent $lineThickness, transparent $gridSize),
-    linear-gradient(to bottom, $gridColor, $gridColor $lineThickness, transparent $lineThickness, transparent $gridSize);
+  linear-gradient(to right, $gridColor, $gridColor ($lineThickness + 1px), transparent ($lineThickness + 1px), transparent $gridSize),
+  linear-gradient(to bottom, $gridColor, $gridColor ($lineThickness + 1px), transparent ($lineThickness + 1px), transparent $gridSize);
+
 
   background-size: $gridSize $gridSize;
-  
-  // Transform magic
-  transform: perspective(900px) rotateX(70deg) scale(1.2); // Scaled it up a bit
-  transform-origin: 50% 40%;  // Pivot at the bottom center
 
-  // Fading the grid lines
+  transform: perspective(900px) rotateX(70deg) scale(1.2);
+  transform-origin: 50% 40%;
+
   &:after {
     content: "";
     position: absolute;
@@ -51,10 +52,8 @@ $gridColor: #ff004b;  // Grid color
   src: url("../fonts/comm-pet.ttf");
 }
 
-// import reset.css
-@import "reset.css";
 .terminal {
-  border: 5px solid $border-color;
+  outline: 5px solid $border-color;
   width: 50%;
   height: 70%;
   background-color: #1b1b1b;
@@ -64,9 +63,7 @@ $gridColor: #ff004b;  // Grid color
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1000;
-  @media (orientation: portrait) {
-    width: 75%;
-  }
+  border-collapse: separate;
 }
 
 .title-bar {
@@ -75,7 +72,10 @@ $gridColor: #ff004b;  // Grid color
   padding: 5px;
   text-align: left; /* Align the title to the left */
   font-weight: bold;
-  font-family: "Commodore PET";
+  font-family: "Commodore PET", monospace, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .close-btn {
     cursor: pointer;
@@ -106,13 +106,14 @@ $gridColor: #ff004b;  // Grid color
   align-items: center;
   height: 100%;
   position: relative;
-  /* Add some horizontal padding to push the options apart */
-  gap: 50px; 
+  row-gap: 5vh;
+  column-gap: 0vw;
+
 }
 
 .language-option {
-  width: auto;  /* Changed from 110px to auto to accommodate the wider font */
-  margin: 5px;
+  width: 12vw;
+  margin: 0px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -125,14 +126,16 @@ $gridColor: #ff004b;  // Grid color
   text-overflow: ellipsis;
 
   img {
-    width: 104px;
-    height: 104px;
+    width: 7vw;
     image-rendering: -moz-crisp-edges;         /* Firefox */
     image-rendering: -o-crisp-edges;           /* Opera */
     image-rendering: -webkit-optimize-contrast;/* Webkit (Safari now, Chrome & Opera older) */
     image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;
+    -ms-interpolation-mode: nearest-neighbor;
     margin-bottom: -5px;
+    @media (orientation: portrait) {
+      width: 10vh;      
+    }
   }
 
   span {
@@ -151,13 +154,35 @@ $gridColor: #ff004b;  // Grid color
     }
   }
 }
+.terminal, .title-bar {
+  box-sizing: border-box;
+}
 
 #static-effect {
   position: absolute;
   top: 0;
   left: 0;
   pointer-events: none; /* So it doesn't interfere with other interactions */
-  opacity: 0.15; /* You can adjust the opacity as needed */
+  opacity: 0.1; /* You can adjust the opacity as needed */
 }
+$PgridSize: 50px;  // Size of the grid cell (mobile)
+$PlineThickness: 4px;  // Thickness of the lines (mobile)
+@media (orientation: portrait) {
+  .terminal {
+    width: 75%;
+  }
 
-
+  .content {
+    flex-direction: column; // Stack items vertically
+  }
+  
+  .language-option {
+    margin-bottom: 20px; // Add some spacing between the options
+  }
+  .grid-background {
+    background-image: 
+      linear-gradient(to right, $gridColor, $gridColor $PlineThickness, transparent $PlineThickness, transparent $PgridSize),
+      linear-gradient(to bottom, $gridColor, $gridColor $PlineThickness, transparent $PlineThickness, transparent $PgridSize);
+    background-size: $PgridSize $PgridSize;
+  }
+}

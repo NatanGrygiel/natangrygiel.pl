@@ -112,12 +112,4 @@ a {
   border: 5px solid #ff004b;
 }
 
-/* mobile padding */
-@media (orientation: portrait) {
-  .center {
-    padding: 3vw;
-  }
-  .bottom {
-    padding: 2.25vw;
-  }
-}/*# sourceMappingURL=style.css.map */
+/* mobile padding *//*# sourceMappingURL=style.css.map */

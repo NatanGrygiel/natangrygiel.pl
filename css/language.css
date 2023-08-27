@@ -1,3 +1,4 @@
+@import "normalize.css";
 @import "reset.css";
 body {
   margin: 0;
@@ -7,13 +8,14 @@ body {
 }
 
 .grid-background {
+  transform-style: preserve-3d;
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: -1px;
+  width: calc(100% + 1px);
   height: 100%;
   background-color: #140c0e;
-  background-image: linear-gradient(to right, #ff004b, #ff004b 5px, transparent 5px, transparent 75px), linear-gradient(to bottom, #ff004b, #ff004b 5px, transparent 5px, transparent 75px);
+  background-image: linear-gradient(to right, #ff004b, #ff004b 6px, transparent 6px, transparent 75px), linear-gradient(to bottom, #ff004b, #ff004b 6px, transparent 6px, transparent 75px);
   background-size: 75px 75px;
   transform: perspective(900px) rotateX(70deg) scale(1.2);
   transform-origin: 50% 40%;
@@ -34,7 +36,7 @@ body {
   src: url("../fonts/comm-pet.ttf");
 }
 .terminal {
-  border: 5px solid #ff004b;
+  outline: 5px solid #ff004b;
   width: 50%;
   height: 70%;
   background-color: #1b1b1b;
@@ -44,11 +46,7 @@ body {
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1000;
-}
-@media (orientation: portrait) {
-  .terminal {
-    width: 75%;
-  }
+  border-collapse: separate;
 }
 
 .title-bar {
@@ -57,7 +55,10 @@ body {
   padding: 5px;
   text-align: left; /* Align the title to the left */
   font-weight: bold;
-  font-family: "Commodore PET";
+  font-family: "Commodore PET", monospace, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .title-bar .close-btn {
   cursor: pointer;
@@ -87,13 +88,14 @@ body {
   align-items: center;
   height: 100%;
   position: relative;
-  /* Add some horizontal padding to push the options apart */
-  gap: 50px;
+  row-gap: 5vh;
+  -moz-column-gap: 0vw;
+       column-gap: 0vw;
 }
 
 .language-option {
-  width: auto; /* Changed from 110px to auto to accommodate the wider font */
-  margin: 5px;
+  width: 12vw;
+  margin: 0px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -106,14 +108,18 @@ body {
   text-overflow: ellipsis;
 }
 .language-option img {
-  width: 104px;
-  height: 104px;
+  width: 7vw;
   image-rendering: -moz-crisp-edges; /* Firefox */
   image-rendering: -o-crisp-edges; /* Opera */
   image-rendering: -webkit-optimize-contrast; /* Webkit (Safari now, Chrome & Opera older) */
   image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
   margin-bottom: -5px;
+}
+@media (orientation: portrait) {
+  .language-option img {
+    width: 10vh;
+  }
 }
 .language-option span {
   display: block;
@@ -128,10 +134,30 @@ body {
   transition: background-color 0.3s ease-in;
 }
 
+.terminal, .title-bar {
+  box-sizing: border-box;
+}
+
 #static-effect {
   position: absolute;
   top: 0;
   left: 0;
   pointer-events: none; /* So it doesn't interfere with other interactions */
-  opacity: 0.15; /* You can adjust the opacity as needed */
+  opacity: 0.1; /* You can adjust the opacity as needed */
+}
+
+@media (orientation: portrait) {
+  .terminal {
+    width: 75%;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .language-option {
+    margin-bottom: 20px;
+  }
+  .grid-background {
+    background-image: linear-gradient(to right, #ff004b, #ff004b 4px, transparent 4px, transparent 50px), linear-gradient(to bottom, #ff004b, #ff004b 4px, transparent 4px, transparent 50px);
+    background-size: 50px 50px;
+  }
 }/*# sourceMappingURL=language.css.map */
