@@ -1,31 +1,58 @@
-const canvas = document.getElementById('static-effect');
-const ctx = canvas.getContext('2d');
-const terminal = document.querySelector('.terminal');
+let canvas, ctx, terminal;
+let frames = [];
+let frameIndex = 0;
+const numFrames = 10; // Number of frames to pre-render
 
-// Set canvas size
-canvas.width = terminal.clientWidth;
-canvas.height = terminal.clientHeight;
+const worker = new Worker('js/worker.js');
 
-// Function to create static effect
-function createStatic() {
-  const imageData = ctx.createImageData(canvas.width, canvas.height);
-  const data = imageData.data;
+// Function to set up the canvas and context
+function setupCanvas() {
+  canvas = document.getElementById('static-effect');
+  ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  terminal = document.querySelector('.terminal');
 
-  for (let i = 0; i < data.length; i += 4) {
-    const color = Math.random() * 255; // Random grayscale value
-    data[i] = color;     // Red
-    data[i + 1] = color; // Green
-    data[i + 2] = color; // Blue
-    data[i + 3] = 255;   // Alpha (fully opaque)
+  // Correct for high DPI displays
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = terminal.clientWidth * dpr;
+  canvas.height = terminal.clientHeight * dpr;
+  ctx.scale(dpr, dpr);
+
+  // Pre-render frames and start updating
+  preRenderFrames();
+}
+
+// Function to pre-render static frames
+function preRenderFrames() {
+  let renderedFrames = 0;
+  
+  worker.onmessage = function(event) {
+    frames.push(event.data);
+    renderedFrames++;
+    
+    // Start the animation loop only after all frames are rendered
+    if (renderedFrames === numFrames) {
+      update();
+    }
+  };
+
+  for (let i = 0; i < numFrames; i++) {
+    worker.postMessage({
+      width: canvas.width,
+      height: canvas.height
+    });
   }
-
-  ctx.putImageData(imageData, 0, 0);
 }
 
 // Function to update static effect
 function update() {
-  createStatic();
-  requestAnimationFrame(update); // Continue to update
+  ctx.drawImage(frames[frameIndex], 0, 0);
+  frameIndex = (frameIndex + 1) % frames.length;
+  requestAnimationFrame(update);
 }
 
-update(); // Start updating
+// Listen for window resize
+window.addEventListener('resize', setupCanvas);
+
+// Initial setup
+setupCanvas();

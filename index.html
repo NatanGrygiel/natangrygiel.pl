@@ -8,7 +8,8 @@
     <title>Natan Grygiel</title>
 </head>
 <body>
-
+  <!-- use perspective: none; transform: rotateX(0deg) z-index: 9999 in the div below to fix the bug -->
+  <div>
     <div class="terminal">
         <div class="title-bar">
           <span class="close-btn">X</span>
@@ -18,17 +19,19 @@
             <canvas id="static-effect"></canvas>
           <div class="language-option" onclick="location.href='/pl/'">
             <img src="img/poland.png" alt="Polish Flag">
-            <span>< POLSKI ></span>
+            <span>[ POLSKI ]</span>
           </div>
           <div class="language-option" onclick="location.href='/en/'">
             <img src="img/usa.png" alt="USA Flag">
-            <span>< ENGLISH ></span>
+            <span>[ ENGLISH ]</span>
           </div>
         </div>
       </div>
+  </div>
+  <div class="grid-background"></div>
+    <script src="js/worker.js"></script>
     <script src="js/static.js"></script>
-    <script src="js/fisheye.js"></script>
-    <script src="js/apply.js"></script>
+
       
 </body>
 
