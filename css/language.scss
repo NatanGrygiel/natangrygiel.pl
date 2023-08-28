@@ -1,14 +1,17 @@
 $border-color: #ff004b;
 $background-color: #140c0e;
 $bg-gradient: #140c0e;
-//import normalize.css
-@import "normalize.css";
-@import "reset.css";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
 }
 
 $gridSize: 75px;  // Size of the grid cell
@@ -50,10 +53,11 @@ $gridColor: #ff004b;  // Grid color
 @font-face {
   font-family: "Commodore PET";
   src: url("../fonts/comm-pet.ttf");
+  font-weight: normal;
 }
 
 .terminal {
-  outline: 5px solid $border-color;
+  border: 4px solid $border-color;
   width: 50%;
   height: 70%;
   background-color: #1b1b1b;
@@ -63,7 +67,6 @@ $gridColor: #ff004b;  // Grid color
   transform: translate(-50%, -50%);
   overflow: hidden;
   z-index: 1000;
-  border-collapse: separate;
 }
 
 .title-bar {
@@ -76,6 +79,7 @@ $gridColor: #ff004b;  // Grid color
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0px;
 
   .close-btn {
     cursor: pointer;
