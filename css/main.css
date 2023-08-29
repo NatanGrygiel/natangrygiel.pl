@@ -2,10 +2,6 @@
   font-family: "Commodore PET";
   src: url("../fonts/PetMe.ttf");
 }
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -38,22 +34,37 @@ body {
   pointer-events: none;
 }
 
-.terminal {
+.head-terminal {
   border: 4px solid #ff004b;
-  width: 50vw;
-  height: 70vh;
+  width: 60vw;
+  height: 20vh;
   background-color: #1b1b1b;
   position: fixed;
-  top: 50%;
+  top: 2vh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   overflow: hidden;
   z-index: 1000;
 }
 @media (orientation: portrait) {
-  .terminal {
-    height: 70vh;
+  .head-terminal {
+    height: 10vh;
     width: 80vw;
+  }
+}
+
+.domain-name {
+  margin-bottom: 3vh;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Commodore PET";
+  font-size: 3vw;
+}
+@media (orientation: portrait) {
+  .domain-name {
+    font-size: 4.5vw;
+    margin-bottom: 4vw;
   }
 }
 
@@ -68,13 +79,16 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 0px;
+  font-size: 1em;
+}
+@media (orientation: portrait) {
+  .title-bar {
+    font-size: 0.7em;
+  }
 }
 .title-bar .close-btn {
   cursor: pointer;
   float: right; /* Move the close button to the right */
-}
-.title-bar:before {
-  content: "[root@localhost]#"; /* Title */
 }
 
 .overlay {
@@ -92,81 +106,40 @@ body {
 .content {
   padding: 0;
   margin-top: 0px;
+  margin-bottom: 4vh;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   position: relative;
-  row-gap: 5vh;
-  -moz-column-gap: 8vw;
-       column-gap: 8vw;
-}
-
-.language-option {
-  width: 12vw;
-  margin: 0px;
-  cursor: pointer;
-  display: flex;
+  row-gap: 1vh;
+  -moz-column-gap: 0vw;
+       column-gap: 0vw;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Commodore PET";
-  /* Add the following to prevent text from breaking into multiple lines */
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.language-option img {
-  width: 7vw;
-  image-rendering: -moz-crisp-edges; /* Firefox */
-  image-rendering: -o-crisp-edges; /* Opera */
-  image-rendering: -webkit-optimize-contrast; /* Webkit (Safari now, Chrome & Opera older) */
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;
-  margin-bottom: -5px;
-}
-@media (orientation: portrait) {
-  .language-option img {
-    width: 10vh;
-  }
-}
-.language-option span {
-  display: block;
-  color: #fff;
-  font-weight: bold;
-  margin-top: 20px;
-  background-color: transparent;
-  transition: background-color 0.3s ease-out;
-}
-.language-option:hover span {
-  background-color: #ff004b;
-  transition: background-color 0.3s ease-in;
 }
 
-.terminal, .title-bar {
-  box-sizing: border-box;
-}
-
-#static-effect {
+.body-terminal {
+  border: 4px solid #ff004b;
+  width: 60vw;
+  height: 71vh;
+  background-color: #1b1b1b;
   position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none; /* So it doesn't interfere with other interactions */
-  opacity: 0.1; /* You can adjust the opacity as needed */
+  top: 25.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  z-index: 999;
+}
+@media (orientation: portrait) {
+  .body-terminal {
+    height: 70vh;
+    width: 80vw;
+    top: 15vh;
+  }
 }
 
-@media (orientation: portrait) {
-  .terminal {
-    width: 75%;
-  }
-  .content {
-    flex-direction: column;
-  }
-  .language-option {
-    margin-bottom: 20px;
-  }
-  .grid-background {
-    background-image: linear-gradient(to right, #ff004b, #ff004b 4px, transparent 4px, transparent 50px), linear-gradient(to bottom, #ff004b, #ff004b 4px, transparent 4px, transparent 50px);
-    background-size: 50px 50px;
-  }
-}/*# sourceMappingURL=language.css.map */
+.body-content {
+  padding: 20px;
+  color: #fff;
+  font-family: "Commodore PET", monospace, sans-serif;
+}/*# sourceMappingURL=main.css.map */

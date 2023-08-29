@@ -2,6 +2,13 @@ $border-color: #ff004b;
 $background-color: #140c0e;
 $bg-gradient: #140c0e;
 
+
+@font-face {
+  font-family: "Commodore PET";
+  src: url("../fonts/PetMe.ttf");
+}
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -58,13 +65,6 @@ $gridColor: #ff004b;  // Grid color
     background: linear-gradient(to top, transparent, $bg-gradient 50%);
     pointer-events: none;
   }
-}
-
-//use Commodore PET font, located in fonts/comm-pet.ttf
-@font-face {
-  font-family: "Commodore PET";
-  src: url("../fonts/comm-pet.ttf");
-  font-weight: normal;
 }
 
 .terminal {
@@ -126,7 +126,7 @@ $gridColor: #ff004b;  // Grid color
   height: 100%;
   position: relative;
   row-gap: 5vh;
-  column-gap: 0vw;
+  column-gap: 8vw;
 
 }
 
