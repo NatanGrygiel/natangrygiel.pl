@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Commodore PET";
-  src: url("../fonts/PetMe.ttf");
+  src: url("../fonts/PetMe2.ttf");
 }
 body {
   margin: 0;
@@ -142,4 +142,31 @@ body {
   padding: 20px;
   color: #fff;
   font-family: "Commodore PET", monospace, sans-serif;
+}
+
+.content-main {
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+  row-gap: 1vh;
+  -moz-column-gap: 0vw;
+       column-gap: 0vw;
+  flex-direction: column;
+}
+
+p {
+  font-family: "Commodore PET", monospace, sans-serif;
+  font-size: 1vw;
+  color: #fff;
+}
+@media (orientation: portrait) {
+  p {
+    font-size: 2.5vw;
+  }
 }/*# sourceMappingURL=main.css.map */
