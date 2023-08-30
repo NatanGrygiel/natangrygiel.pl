@@ -49,7 +49,7 @@ body {
 @media (orientation: portrait) {
   .head-terminal {
     height: 10vh;
-    width: 80vw;
+    width: 90vw;
   }
 }
 
@@ -72,7 +72,7 @@ body {
   background-color: #ff004b;
   color: #fff;
   padding: 5px;
-  text-align: left; /* Align the title to the left */
+  text-align: left;
   font-weight: bold;
   font-family: "Commodore PET", monospace, sans-serif;
   display: flex;
@@ -88,7 +88,7 @@ body {
 }
 .title-bar .close-btn {
   cursor: pointer;
-  float: right; /* Move the close button to the right */
+  float: right;
 }
 
 .overlay {
@@ -133,7 +133,7 @@ body {
 @media (orientation: portrait) {
   .body-terminal {
     height: 70vh;
-    width: 80vw;
+    width: 90vw;
     top: 15vh;
   }
 }
@@ -162,11 +162,53 @@ body {
 
 p {
   font-family: "Commodore PET", monospace, sans-serif;
-  font-size: 1vw;
+  font-weight: normal;
+  font-size: 1.1vw;
+  margin: 1%;
   color: #fff;
+  line-height: 1.5;
 }
 @media (orientation: portrait) {
   p {
-    font-size: 2.5vw;
+    font-size: 3vw;
+    margin: 2%;
+  }
+}
+
+.link-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2vh;
+  font-family: "Commodore PET", monospace, sans-serif;
+  font-weight: bolder;
+}
+.link-options .link-option {
+  font-weight: bolder;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.link-options .link-option:hover {
+  background-color: #ff004b;
+  transition: background-color 0.3s ease-in;
+}
+
+.disclaimer span {
+  font-family: "Commodore PET", monospace, sans-serif;
+  font-weight: normal;
+  font-size: 1.1vw;
+  margin: 1%;
+  color: #fff;
+  line-height: 1.5;
+}
+@media (orientation: portrait) {
+  .disclaimer span {
+    font-size: 3vw;
+    margin: 2%;
   }
 }/*# sourceMappingURL=main.css.map */

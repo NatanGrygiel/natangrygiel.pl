@@ -15,16 +15,16 @@ body {
     -webkit-font-smoothing: antialiased;
   }
   
-  $gridSize: 75px;  // Size of the grid cell
-  $lineThickness: 5px;  // Thickness of the lines
-  $gridColor: #ff004b;  // Grid color
+  $gridSize: 75px; 
+  $lineThickness: 5px;  
+  $gridColor: #ff004b;  
   
   .grid-background {
     transform-style: preserve-3d;
     position: fixed;
     bottom: 0;
-    left: -1px;  // Push it 1px to the left
-    width: calc(100% + 1px);  // Extend the width by 1px
+    left: -1px;  
+    width: calc(100% + 1px);  
     height: 100%;
     background-color: $background-color;
   
@@ -63,7 +63,7 @@ body {
     z-index: 1000;
     @media (orientation: portrait) {
       height: 10vh;
-      width: 80vw;
+      width: 90vw;
     }
   }
 
@@ -84,7 +84,7 @@ body {
     background-color: $border-color;
     color: #fff;
     padding: 5px;
-    text-align: left; /* Align the title to the left */
+    text-align: left;
     font-weight: bold;
     font-family: "Commodore PET", monospace, sans-serif;
     display: flex;
@@ -98,7 +98,7 @@ body {
   
     .close-btn {
       cursor: pointer;
-      float: right; /* Move the close button to the right */
+      float: right; 
     }
     }
   
@@ -124,30 +124,30 @@ body {
     position: relative;
     row-gap: 1vh;
     column-gap: 0vw;
-    flex-direction: column;  // Added this line
+    flex-direction: column; 
   
   }
 
   .body-terminal {
     border: 4px solid $border-color;
-    width: 60vw;  // You might want this one wider since it's the body
+    width: 60vw;  
     height: 71vh;
     background-color: #1b1b1b;
-    position: absolute;  // changed from fixed to absolute
-    top: 25.5vh;  // position it below the header
+    position: absolute; 
+    top: 25.5vh; 
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
-    z-index: 999;  // a layer below the header
+    z-index: 999; 
     @media (orientation: portrait) {
       height: 70vh;
-      width: 80vw;
+      width: 90vw;
       top: 15vh;
     }
   }
   
   .body-content {
-    padding: 20px;  // give it some breathing room
+    padding: 20px;
     color: #fff;
     font-family: "Commodore PET", monospace, sans-serif;
   }
@@ -165,13 +165,57 @@ body {
     row-gap: 1vh;
     column-gap: 0vw;
     flex-direction: column;  // Added this line
+    
   }
 
   p {
     font-family: "Commodore PET", monospace, sans-serif;
-    font-size: 1vw;
+    font-weight: normal;
+    font-size: 1.1vw;
+    margin: 1%;
     color: #fff;
+    line-height: 1.5;
     @media (orientation: portrait) {
-      font-size: 2.5vw;
+      font-size: 3vw;
+      margin: 2%;
     }
   }
+
+  .link-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 2vh; 
+    font-family: "Commodore PET", monospace, sans-serif;
+    font-weight: bolder;
+    .link-option {
+      font-weight: bolder;
+      text-align: center;
+      margin: 5px; 
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #ff004b;
+        transition: background-color 0.3s ease-in;
+      }
+    }
+  }
+
+  .disclaimer {
+    span {
+      font-family: "Commodore PET", monospace, sans-serif;
+      font-weight: normal;
+      font-size: 1.1vw;
+      margin: 1%;
+      color: #fff;
+      line-height: 1.5;
+      @media (orientation: portrait) {
+        font-size: 3vw;
+        margin: 2%;
+      }
+      }
+    }
